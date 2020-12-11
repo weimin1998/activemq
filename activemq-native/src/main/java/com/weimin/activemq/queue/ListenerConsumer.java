@@ -1,4 +1,4 @@
-package com.weimin.activemq;
+package com.weimin.activemq.queue;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -28,7 +28,7 @@ public class ListenerConsumer {
         // 创建消费者
         MessageConsumer consumer = session.createConsumer(queue);
 
-        //
+        // 异步监听
         consumer.setMessageListener(message -> {
             if(message!=null){
                 TextMessage textMessage = (TextMessage) message;
