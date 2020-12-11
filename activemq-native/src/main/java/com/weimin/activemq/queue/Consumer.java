@@ -1,4 +1,4 @@
-package com.weimin.activemq;
+package com.weimin.activemq.queue;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -28,6 +28,7 @@ public class Consumer {
         MessageConsumer consumer = session.createConsumer(queue);
 
         while (true){
+            // 同步阻塞
             TextMessage message = (TextMessage) consumer.receive(1000L);
             if(message!=null){
                 String text = message.getText();
